@@ -2,11 +2,13 @@ version: 0.1.0
 evidence:
   non-admin-access-denied:
     type: automated-or-manual
+    status: missing
     description: Verify non-admin users cannot access admin-only actions.
   cross-tenant-access-denied:
     type: automated-or-manual
+    status: missing
     description: Verify users cannot access data from another tenant.
   session-cookie-flags-verified:
     type: automated-or-manual
+    status: missing
     description: Verify session cookies keep HttpOnly, Secure, and SameSite protections.
-

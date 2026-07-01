@@ -7,8 +7,23 @@
   "bin": {
     "oas": "./dist/cli.js"
   },
+  "files": [
+    "dist",
+    "rules",
+    "skills",
+    "templates",
+    "standards",
+    "agents",
+    "integrations",
+    "action.yml",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "tsc",
+    "prepack": "npm run build",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
@@ -27,4 +42,3 @@
     "node": ">=20"
   }
 }
-

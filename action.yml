@@ -1,0 +1,53 @@
+name: OpenAgentSecurity
+description: Security gates for AI-generated code changes.
+author: mateaix
+
+inputs:
+  base:
+    description: Git ref used as the scan base.
+    required: false
+    default: origin/main
+  fail-on:
+    description: Risk level that should fail when required evidence is missing.
+    required: false
+    default: high
+  evidence:
+    description: Optional evidence YAML file.
+    required: false
+    default: .oas/evidence.yml
+  report:
+    description: JSON report output path.
+    required: false
+    default: .oas/report.json
+
+runs:
+  using: composite
+  steps:
+    - name: Install OpenAgentSecurity dependencies
+      shell: bash
+      run: npm ci --prefix "$GITHUB_ACTION_PATH"
+    - name: Build OpenAgentSecurity
+      shell: bash
+      run: npm run build --prefix "$GITHUB_ACTION_PATH"
+    - name: Scan pull request diff
+      shell: bash
+      run: |
+        mkdir -p "$(dirname "${{ inputs.report }}")"
+        node "$GITHUB_ACTION_PATH/dist/cli.js" scan \
+          --base "${{ inputs.base }}" \
+          --format json \
+          --out "${{ inputs.report }}"
+    - name: Evaluate merge gate
+      shell: bash
+      run: |
+        if [ -f "${{ inputs.evidence }}" ]; then
+          node "$GITHUB_ACTION_PATH/dist/cli.js" gate \
+            --report "${{ inputs.report }}" \
+            --evidence "${{ inputs.evidence }}" \
+            --fail-on "${{ inputs.fail-on }}"
+        else
+          node "$GITHUB_ACTION_PATH/dist/cli.js" gate \
+            --report "${{ inputs.report }}" \
+            --fail-on "${{ inputs.fail-on }}"
+        fi
+

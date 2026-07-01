@@ -1,0 +1,9 @@
+version: 0.1.0
+evidence:
+  non-admin-access-denied:
+    status: pass
+    note: Access-control regression test passed for non-admin users.
+  cross-tenant-access-denied:
+    status: provided
+    note: Reviewer confirmed tenant isolation test coverage.
+

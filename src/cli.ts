@@ -1,18 +1,57 @@
 #!/usr/bin/env node
 import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { Command } from "commander";
+import { compileIntegrations, type IntegrationTool } from "./core/compile.js";
+import { evaluateGate, loadEvidenceStatus } from "./core/evidence.js";
+import { initProject } from "./core/init.js";
 import { loadRules } from "./core/rules.js";
 import { scanDiff } from "./core/scan.js";
 import { toJson, toMarkdown } from "./core/report.js";
 
 const program = new Command();
+const packageRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 program
   .name("oas")
   .description("Security gates for AI-generated code changes.")
   .version("0.1.0");
+
+program
+  .command("init")
+  .description("Initialize OpenAgentSecurity config in a project.")
+  .option("--project <dir>", "project directory", ".")
+  .option("--github-action", "install GitHub Actions workflow", false)
+  .option("--force", "overwrite existing files", false)
+  .action(async (options) => {
+    const result = await initProject({
+      sourceRoot: packageRoot,
+      projectDir: resolve(options.project),
+      force: options.force,
+      includeGithubAction: options.githubAction,
+    });
+
+    for (const file of result.created) console.log(`created ${file}`);
+    for (const file of result.skipped) console.log(`skipped ${file}`);
+  });
+
+program
+  .command("compile")
+  .description("Compile source skills into tool-specific integration files.")
+  .option("--tool <tools>", "comma-separated tools or all", "all")
+  .option("--out <dir>", "output directory", "integrations")
+  .action(async (options) => {
+    const tools = parseTools(options.tool);
+    const result = await compileIntegrations({
+      rootDir: packageRoot,
+      outDir: resolve(options.out),
+      tools,
+    });
+
+    for (const file of result.files) console.log(`generated ${file}`);
+  });
 
 program
   .command("scan")
@@ -24,7 +63,7 @@ program
   .option("--out <file>", "write report to file")
   .action(async (options) => {
     const diff = await readDiff(options.diff, options.base);
-    const rules = await loadRules(resolve(options.rules));
+    const rules = await loadRules(resolveRulesDir(options.rules));
     const result = scanDiff(diff, rules);
     const output = options.format === "json" ? toJson(result) : toMarkdown(result);
 
@@ -41,17 +80,19 @@ program
   .command("gate")
   .description("Evaluate a JSON scan report as a merge gate.")
   .option("--report <file>", "JSON report file", ".oas/report.json")
+  .option("--evidence <file>", "YAML evidence status file")
   .option("--fail-on <level>", "risk level that should fail", "high")
   .action(async (options) => {
-    const report = JSON.parse(await readFile(resolve(options.report), "utf8")) as {
-      risk: string;
-      gate?: { shouldFail?: boolean; reasons?: string[] };
-    };
-    const shouldFail = report.gate?.shouldFail ?? riskAtLeast(report.risk, options.failOn);
+    const report = JSON.parse(await readFile(resolve(options.report), "utf8"));
+    const evidence = options.evidence ? await loadEvidenceStatus(resolve(options.evidence)) : {};
+    const gate = evaluateGate(report, {
+      failOn: options.failOn,
+      evidence,
+    });
 
-    if (shouldFail) {
+    if (gate.shouldFail) {
       console.error("OpenAgentSecurity gate failed.");
-      for (const reason of report.gate?.reasons ?? []) console.error(`- ${reason}`);
+      for (const reason of gate.reasons) console.error(`- ${reason}`);
       process.exitCode = 1;
       return;
     }
@@ -70,4 +111,15 @@ async function readDiff(diffFile?: string, base?: string): Promise<string> {
 function riskAtLeast(actual: string, threshold: string): boolean {
   const rank: Record<string, number> = { none: 0, low: 1, medium: 2, high: 3, block: 4 };
   return (rank[actual] ?? 0) >= (rank[threshold] ?? 3);
+}
+
+function parseTools(input: string): IntegrationTool[] {
+  const all: IntegrationTool[] = ["cursor", "codex", "claude-code", "windsurf", "copilot"];
+  if (input === "all") return all;
+  return input.split(",").map((tool) => tool.trim()) as IntegrationTool[];
+}
+
+function resolveRulesDir(input: string): string {
+  if (input !== "rules") return resolve(input);
+  return join(packageRoot, "rules");
 }
