@@ -1,27 +1,31 @@
-id: oas.mcp-tools
-title: MCP tool permission change review
+id: oas.agentic-tooling
+title: Agentic tool and autonomy change review
 sources:
-  - owasp.llm-top-10
   - owasp.agentic-top-10
   - owasp.mcp-top-10
+  - nist.ai-rmf
   - cisa.agentic-ai
-  - nist.ssdf
 risk: high
 triggers:
   paths:
+    - "**/agents/**"
+    - "**/.agents/**"
+    - "**/agent*.yml"
+    - "**/agent*.yaml"
+    - "**/agent*.json"
     - "**/mcp*.json"
     - "**/.mcp/**"
-    - "**/tools/**"
-    - "**/agents/**"
   keywords:
-    - mcp
-    - tool_call
     - tool_permission
+    - approval
+    - autonomy
     - shell
+    - network
     - filesystem
+    - browser
 requiredEvidence:
   - tool-permissions-reviewed
-  - dangerous-tool-access-justified
   - human-approval-boundary-verified
+  - agent-action-logging-verified
 gate:
   failOnMissingEvidence: true

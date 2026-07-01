@@ -13,4 +13,14 @@ invariants:
       - "src/**/permissions/**"
     requiredEvidence:
       - cross-tenant-access-denied
-
+  - id: agent-dangerous-tools-require-approval
+    description: Agent tool access that can change code, run commands, access files, use browsers, or call external services requires explicit review.
+    paths:
+      - "**/agents/**"
+      - "**/.agents/**"
+      - "**/mcp*.json"
+      - "**/.mcp/**"
+    requiredEvidence:
+      - tool-permissions-reviewed
+      - human-approval-boundary-verified
+      - agent-action-logging-verified

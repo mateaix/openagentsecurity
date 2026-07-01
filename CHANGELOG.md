@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+- Refined source skills with explicit source guidance, defensive boundaries,
+  required output sections, and agentic AI/MCP review workflows.
+- Added `oas.agentic-tooling` rule for agent permissions, autonomy, approval
+  boundaries, shell/filesystem/network/browser access, and tool-call logging.
+- Expanded the standards registry with OWASP Agentic AI, OWASP MCP guidance,
+  NIST AI RMF, and CISA/NSA/Five Eyes AI deployment guidance references.
+- Expanded evidence and invariant templates for agent tool permissions, human
+  approval boundaries, and action logging.
+
 ## 0.1.0 - 2026-07-01
 
 Initial MVP release.
@@ -12,4 +23,3 @@ Initial MVP release.
   auth/session, secrets, dependencies, and MCP tools.
 - Added minimal example diff and evidence workflow.
 - Added composite GitHub Action metadata.
-

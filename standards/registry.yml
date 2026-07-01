@@ -4,6 +4,7 @@ sources:
   - id: owasp.asvs
     name: OWASP Application Security Verification Standard
     url: https://owasp.org/www-project-application-security-verification-standard/
+    version: "5.0.0"
     license: project-specific
     areas:
       - application-security
@@ -24,6 +25,24 @@ sources:
     areas:
       - llm-security
       - agent-security
+  - id: owasp.agentic-top-10
+    name: OWASP Top 10 for Agentic Applications
+    url: https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/
+    license: project-specific
+    areas:
+      - agentic-ai
+      - autonomy-risk
+      - tool-use
+      - human-oversight
+  - id: owasp.mcp-top-10
+    name: OWASP MCP Security Guidance
+    url: https://genai.owasp.org/
+    license: project-specific
+    areas:
+      - mcp-security
+      - tool-permissions
+      - prompt-injection
+      - data-exposure
   - id: mitre.cwe
     name: MITRE Common Weakness Enumeration
     url: https://cwe.mitre.org/
@@ -33,11 +52,30 @@ sources:
   - id: nist.ssdf
     name: NIST Secure Software Development Framework
     url: https://csrc.nist.gov/publications/detail/sp/800-218/final
+    version: "1.1"
     license: public-domain
     areas:
       - secure-sdlc
       - verification
       - release-gate
+  - id: nist.ai-rmf
+    name: NIST AI Risk Management Framework
+    url: https://www.nist.gov/itl/ai-risk-management-framework
+    license: public
+    areas:
+      - ai-risk-management
+      - governance
+      - monitoring
+      - accountability
+  - id: cisa.agentic-ai
+    name: CISA, NSA, and international guidance for deploying AI systems securely
+    url: https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services
+    license: public
+    areas:
+      - agentic-ai-adoption
+      - secure-configuration
+      - human-oversight
+      - monitoring
   - id: cisa.kev
     name: CISA Known Exploited Vulnerabilities Catalog
     url: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
@@ -59,4 +97,3 @@ sources:
     areas:
       - build-integrity
       - supply-chain
-

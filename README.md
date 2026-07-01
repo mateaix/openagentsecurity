@@ -235,6 +235,23 @@ gate:
   failOnMissingEvidence: true
 ```
 
+## Skill Guidance
+
+The source skills in `skills/` are intentionally more prescriptive than a
+generic security prompt. Each skill now declares:
+
+- source guidance, including OWASP ASVS 5.0.0, OWASP Agentic AI guidance, OWASP
+  MCP guidance, NIST SSDF, NIST AI RMF, CISA/NSA/Five Eyes AI deployment
+  guidance, MITRE CWE, OpenSSF Scorecard, and SLSA
+- defensive boundaries that prohibit exploit steps and offensive payloads
+- required output formats for review, evidence, and invariant decisions
+- agentic checks for tool permissions, human approval boundaries, and action
+  logging
+
+This keeps generated agent instructions aligned with current secure SDLC,
+agentic AI, and MCP review expectations without copying long standard text into
+the repository.
+
 ## Compliance First
 
 OpenAgentSecurity should not copy long passages from standards into prompts or

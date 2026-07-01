@@ -27,6 +27,18 @@ const rules: SecurityRule[] = [
     requiredEvidence: ["dependency-audit-reviewed"],
     gate: { failOnMissingEvidence: false },
   },
+  {
+    id: "oas.agentic-tooling",
+    title: "Agentic tool and autonomy change review",
+    sources: ["owasp.agentic-top-10", "owasp.mcp-top-10", "cisa.agentic-ai"],
+    risk: "high",
+    triggers: {
+      paths: ["**/agents/**", "**/mcp*.json"],
+      keywords: ["tool_permission", "shell", "network", "approval"],
+    },
+    requiredEvidence: ["tool-permissions-reviewed", "human-approval-boundary-verified"],
+    gate: { failOnMissingEvidence: true },
+  },
 ];
 
 describe("scanDiff", () => {
@@ -69,5 +81,27 @@ index 1111111..2222222 100644
     expect(result.requiredEvidence).toEqual(["dependency-audit-reviewed"]);
     expect(result.gate.shouldFail).toBe(false);
   });
-});
 
+  it("flags agent tool permission changes as high risk", () => {
+    const diff = `diff --git a/.config/agents/reviewer.yml b/.config/agents/reviewer.yml
+index 1111111..2222222 100644
+--- a/.config/agents/reviewer.yml
++++ b/.config/agents/reviewer.yml
+@@ -1,3 +1,5 @@
+ tools:
++  shell: allow
++  network: allow
++approval: optional
+`;
+
+    const result = scanDiff(diff, rules);
+
+    expect(result.risk).toBe("high");
+    expect(result.matches.map((match) => match.ruleId)).toContain("oas.agentic-tooling");
+    expect(result.requiredEvidence).toEqual([
+      "tool-permissions-reviewed",
+      "human-approval-boundary-verified",
+    ]);
+    expect(result.gate.shouldFail).toBe(true);
+  });
+});

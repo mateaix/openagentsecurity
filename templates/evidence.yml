@@ -12,3 +12,19 @@ evidence:
     type: automated-or-manual
     status: missing
     description: Verify session cookies keep HttpOnly, Secure, and SameSite protections.
+  tool-permissions-reviewed:
+    type: manual-review
+    status: missing
+    description: Verify agent, MCP, shell, filesystem, browser, and network tools are least-privilege.
+  dangerous-tool-access-justified:
+    type: manual-review
+    status: missing
+    description: Justify any tool that can execute commands, read sensitive files, browse, or call external services.
+  human-approval-boundary-verified:
+    type: automated-or-manual
+    status: missing
+    description: Verify high-impact agent actions require explicit human approval before execution or merge.
+  agent-action-logging-verified:
+    type: automated-or-manual
+    status: missing
+    description: Verify agent tool calls, approvals, and security-relevant actions are logged for review.
