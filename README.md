@@ -1,8 +1,8 @@
-# OpenAgentSecurity
-
 <p align="center">
-  <img src="imgs/logo.png" alt="OpenAgentSecurity logo" width="180" />
+  <img src="imgs/logo.png" alt="Open Agent Security logo" width="180" />
 </p>
+
+<h1 align="center">Open Agent Security</h1>
 
 <p align="center">
   <strong>Security gates for AI-generated code changes.</strong>

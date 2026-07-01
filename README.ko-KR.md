@@ -1,8 +1,8 @@
-# OpenAgentSecurity
-
 <p align="center">
-  <img src="imgs/logo.png" alt="OpenAgentSecurity logo" width="180" />
+  <img src="imgs/logo.png" alt="Open Agent Security logo" width="180" />
 </p>
+
+<h1 align="center">Open Agent Security</h1>
 
 <p align="center">
   AI 생성 코드 변경을 위한 보안 게이트.
@@ -46,4 +46,3 @@ oas gate --report .oas/report.json --evidence .oas/evidence.yml --fail-on high
 ## Compliance First
 
 OpenAgentSecurity는 표준 문서의 긴 원문을 복사하지 않습니다. 규칙은 source ID, URL, version, license를 참조하고 검증 로직은 프로젝트 고유 문장으로 작성합니다.
-

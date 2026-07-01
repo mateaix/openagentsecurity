@@ -1,8 +1,8 @@
-# OpenAgentSecurity
-
 <p align="center">
-  <img src="imgs/logo.png" alt="OpenAgentSecurity logo" width="180" />
+  <img src="imgs/logo.png" alt="Open Agent Security logo" width="180" />
 </p>
+
+<h1 align="center">Open Agent Security</h1>
 
 <p align="center">
   Шлюзы безопасности для изменений кода, созданных AI.
@@ -46,4 +46,3 @@ oas gate --report .oas/report.json --evidence .oas/evidence.yml --fail-on high
 ## Compliance First
 
 OpenAgentSecurity не копирует длинные фрагменты стандартов. Правила ссылаются на source ID, URL, version и license, а логика проверки описывается собственными формулировками проекта.
-

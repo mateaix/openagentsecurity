@@ -1,8 +1,8 @@
-# OpenAgentSecurity
-
 <p align="center">
-  <img src="imgs/logo.png" alt="OpenAgentSecurity logo" width="180" />
+  <img src="imgs/logo.png" alt="Open Agent Security logo" width="180" />
 </p>
+
+<h1 align="center">Open Agent Security</h1>
 
 <p align="center">
   面向 AI 生成代码变更的安全门禁。
@@ -48,4 +48,3 @@ oas gate --report .oas/report.json --evidence .oas/evidence.yml --fail-on high
 ## 合规优先
 
 OpenAgentSecurity 不复制标准长文本。规则只引用来源 ID、URL、版本和许可，并用项目自有表达描述验证逻辑。
-
