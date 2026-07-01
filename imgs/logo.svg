@@ -1,0 +1,57 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">OpenAgentSecurity logo</title>
+  <desc id="desc">A shield containing agent nodes, code lines, and a security gate check.</desc>
+  <rect width="1024" height="1024" rx="96" fill="#07111C"/>
+  <path d="M512 112C630 210 737 251 848 251V520C848 705 723 850 512 912C301 850 176 705 176 520V251C287 251 394 210 512 112Z" stroke="url(#shield)" stroke-width="36" stroke-linejoin="round"/>
+  <path d="M512 112V912" stroke="#102235" stroke-width="8" opacity=".55"/>
+
+  <circle cx="512" cy="430" r="76" fill="#07111C" stroke="#F7FAFC" stroke-width="24"/>
+  <path d="M485 398L526 439V502" stroke="#F7FAFC" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M502 481L526 505L550 481" stroke="#F7FAFC" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M253 328H338L436 430" stroke="#12A9FF" stroke-width="24" stroke-linecap="round"/>
+  <path d="M253 430H436" stroke="#12A9FF" stroke-width="24" stroke-linecap="round"/>
+  <path d="M253 532H338L436 430" stroke="#12A9FF" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="253" cy="328" r="30" fill="#07111C" stroke="#12A9FF" stroke-width="20"/>
+  <circle cx="253" cy="430" r="30" fill="#07111C" stroke="#12A9FF" stroke-width="20"/>
+  <circle cx="253" cy="532" r="30" fill="#07111C" stroke="#12A9FF" stroke-width="20"/>
+
+  <path d="M771 328H686L588 430" stroke="#58D957" stroke-width="24" stroke-linecap="round"/>
+  <path d="M771 430H588" stroke="#58D957" stroke-width="24" stroke-linecap="round"/>
+  <path d="M771 532H686L588 430" stroke="#58D957" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="771" cy="328" r="30" fill="#07111C" stroke="#58D957" stroke-width="20"/>
+  <circle cx="771" cy="430" r="30" fill="#07111C" stroke="#58D957" stroke-width="20"/>
+  <circle cx="771" cy="532" r="30" fill="#07111C" stroke="#58D957" stroke-width="20"/>
+
+  <path d="M512 248V354" stroke="#12A9FF" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="512" cy="248" r="30" fill="#07111C" stroke="#F7FAFC" stroke-width="20"/>
+  <path d="M512 506V638" stroke="url(#centerLine)" stroke-width="20" stroke-linecap="round"/>
+
+  <path d="M360 590H470" stroke="#12A9FF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M520 590H536" stroke="#F7FAFC" stroke-width="14" stroke-linecap="round"/>
+  <path d="M580 590H684" stroke="#58D957" stroke-width="14" stroke-linecap="round"/>
+  <path d="M330 632H400" stroke="#12A9FF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M430 632H470" stroke="#12A9FF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M520 632H536" stroke="#F7FAFC" stroke-width="14" stroke-linecap="round"/>
+  <path d="M580 632H638" stroke="#58D957" stroke-width="14" stroke-linecap="round"/>
+  <path d="M684 632H718" stroke="#58D957" stroke-width="14" stroke-linecap="round"/>
+  <path d="M394 674H470" stroke="#12A9FF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M580 674H668" stroke="#58D957" stroke-width="14" stroke-linecap="round"/>
+
+  <circle cx="512" cy="760" r="58" fill="#58D957" stroke="#F7FAFC" stroke-width="22"/>
+  <path d="M478 760L503 785L550 735" stroke="#F7FAFC" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <defs>
+    <linearGradient id="shield" x1="176" y1="512" x2="848" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12A9FF"/>
+      <stop offset=".5" stop-color="#18B8F9"/>
+      <stop offset=".5" stop-color="#58D957"/>
+      <stop offset="1" stop-color="#58D957"/>
+    </linearGradient>
+    <linearGradient id="centerLine" x1="512" y1="506" x2="512" y2="638" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12A9FF"/>
+      <stop offset="1" stop-color="#58D957"/>
+    </linearGradient>
+  </defs>
+</svg>
+

@@ -1,0 +1,26 @@
+product:
+  name: OpenAgentSecurity
+  shortName: OAS
+  tagline: 面向 AI 生成代码变更的安全门禁。
+  description: 将安全敏感 diff 转换为必需验证证据和合并决策。
+commands:
+  init: 初始化项目策略、安全不变量和证据模板。
+  compile: 将安全 skills 编译到支持的 Agent 工具。
+  scan: 扫描 git diff 并生成安全报告。
+  gate: 将 JSON 报告和证据文件作为合并门禁进行评估。
+report:
+  title: OpenAgentSecurity 报告
+  risk: 风险
+  changes: 安全敏感变更
+  evidence: 必需证据
+  gate: 合并门禁
+gate:
+  passed: OpenAgentSecurity 门禁通过。
+  failed: OpenAgentSecurity 门禁失败。
+  missingEvidence: 缺少必需证据
+evidence:
+  pass: 通过
+  provided: 已提供
+  missing: 缺失
+  fail: 失败
+

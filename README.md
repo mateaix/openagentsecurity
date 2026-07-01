@@ -1,5 +1,17 @@
 # OpenAgentSecurity
 
+<p align="center">
+  <img src="imgs/logo.png" alt="OpenAgentSecurity logo" width="180" />
+</p>
+
+<p align="center">
+  <strong>Security gates for AI-generated code changes.</strong>
+</p>
+
+<p align="center">
+  English | <a href="README.zh-CN.md">简体中文</a> | <a href="README.ja-JP.md">日本語</a> | <a href="README.ko-KR.md">한국어</a> | <a href="README.ru-RU.md">Русский</a>
+</p>
+
 `oas` is a security gate for AI-generated code changes.
 
 OpenAgentSecurity turns authoritative security guidance into agent skills,
@@ -240,6 +252,8 @@ rules/          Executable rule definitions derived from standards
 skills/         Agent-facing security workflows
 agents/         Multi-agent role definitions
 integrations/   Generated tool-specific skill/rule formats
+locales/        CLI/report language pack source strings
+imgs/           Logo and brand assets
 src/            TypeScript CLI and core runtime
 templates/      Project policy, invariant, evidence, and CI templates
 examples/       Minimal reference projects and workflows
@@ -257,4 +271,3 @@ This release is intentionally small:
 
 The first release proves the workflow: security-sensitive diff in, required
 evidence and merge decision out.
-

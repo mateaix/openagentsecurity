@@ -15,8 +15,10 @@
     "standards",
     "agents",
     "integrations",
+    "locales",
+    "imgs",
     "action.yml",
-    "README.md",
+    "README*.md",
     "LICENSE",
     "SECURITY.md",
     "CHANGELOG.md"

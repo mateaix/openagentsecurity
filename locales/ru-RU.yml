@@ -1,0 +1,26 @@
+product:
+  name: OpenAgentSecurity
+  shortName: OAS
+  tagline: Шлюзы безопасности для изменений кода, созданных AI.
+  description: Преобразует чувствительные к безопасности diff в обязательные доказательства и решения о merge.
+commands:
+  init: Инициализирует политику проекта, инварианты и шаблоны доказательств.
+  compile: Компилирует security skills для поддерживаемых agent tools.
+  scan: Сканирует git diff и создает отчет безопасности.
+  gate: Оценивает JSON отчет и файл доказательств как merge gate.
+report:
+  title: Отчет OpenAgentSecurity
+  risk: Риск
+  changes: Чувствительные к безопасности изменения
+  evidence: Обязательные доказательства
+  gate: Merge gate
+gate:
+  passed: OpenAgentSecurity gate пройден.
+  failed: OpenAgentSecurity gate не пройден.
+  missingEvidence: Отсутствуют обязательные доказательства
+evidence:
+  pass: Пройдено
+  provided: Предоставлено
+  missing: Отсутствует
+  fail: Ошибка
+

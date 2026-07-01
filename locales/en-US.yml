@@ -1,0 +1,26 @@
+product:
+  name: OpenAgentSecurity
+  shortName: OAS
+  tagline: Security gates for AI-generated code changes.
+  description: Turns security-sensitive diffs into required evidence and merge decisions.
+commands:
+  init: Initialize project policy, invariants, and evidence templates.
+  compile: Compile security skills into supported agent tools.
+  scan: Scan a git diff and generate a security report.
+  gate: Evaluate a JSON report and evidence file as a merge gate.
+report:
+  title: OpenAgentSecurity Report
+  risk: Risk
+  changes: Security-sensitive changes
+  evidence: Required evidence
+  gate: Merge gate
+gate:
+  passed: OpenAgentSecurity gate passed.
+  failed: OpenAgentSecurity gate failed.
+  missingEvidence: Missing required evidence
+evidence:
+  pass: Pass
+  provided: Provided
+  missing: Missing
+  fail: Fail
+

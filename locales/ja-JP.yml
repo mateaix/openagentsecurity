@@ -1,0 +1,26 @@
+product:
+  name: OpenAgentSecurity
+  shortName: OAS
+  tagline: AI 生成コード変更のためのセキュリティゲート。
+  description: セキュリティに関わる diff を必要な証跡とマージ判断に変換します。
+commands:
+  init: プロジェクトのポリシー、不変条件、証跡テンプレートを初期化します。
+  compile: セキュリティ skills を対応するエージェントツール向けにコンパイルします。
+  scan: git diff をスキャンしてセキュリティレポートを生成します。
+  gate: JSON レポートと証跡ファイルをマージゲートとして評価します。
+report:
+  title: OpenAgentSecurity レポート
+  risk: リスク
+  changes: セキュリティに関わる変更
+  evidence: 必要な証跡
+  gate: マージゲート
+gate:
+  passed: OpenAgentSecurity ゲートは通過しました。
+  failed: OpenAgentSecurity ゲートは失敗しました。
+  missingEvidence: 必要な証跡が不足しています
+evidence:
+  pass: 合格
+  provided: 提供済み
+  missing: 不足
+  fail: 失敗
+

@@ -1,0 +1,26 @@
+product:
+  name: OpenAgentSecurity
+  shortName: OAS
+  tagline: AI 생성 코드 변경을 위한 보안 게이트.
+  description: 보안 민감 diff를 필요한 증거와 병합 결정으로 변환합니다.
+commands:
+  init: 프로젝트 정책, 보안 불변 조건, 증거 템플릿을 초기화합니다.
+  compile: 보안 skills를 지원되는 에이전트 도구 형식으로 컴파일합니다.
+  scan: git diff를 스캔하고 보안 보고서를 생성합니다.
+  gate: JSON 보고서와 증거 파일을 병합 게이트로 평가합니다.
+report:
+  title: OpenAgentSecurity 보고서
+  risk: 위험
+  changes: 보안 민감 변경
+  evidence: 필요한 증거
+  gate: 병합 게이트
+gate:
+  passed: OpenAgentSecurity 게이트를 통과했습니다.
+  failed: OpenAgentSecurity 게이트가 실패했습니다.
+  missingEvidence: 필요한 증거가 없습니다
+evidence:
+  pass: 통과
+  provided: 제공됨
+  missing: 누락
+  fail: 실패
+
