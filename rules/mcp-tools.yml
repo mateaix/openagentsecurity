@@ -1,0 +1,25 @@
+id: oas.mcp-tools
+title: MCP tool permission change review
+sources:
+  - owasp.llm-top-10
+  - nist.ssdf
+risk: high
+triggers:
+  paths:
+    - "**/mcp*.json"
+    - "**/.mcp/**"
+    - "**/tools/**"
+    - "**/agents/**"
+  keywords:
+    - tool
+    - permission
+    - filesystem
+    - shell
+    - network
+    - mcp
+requiredEvidence:
+  - tool-permissions-reviewed
+  - dangerous-tool-access-justified
+gate:
+  failOnMissingEvidence: true
+

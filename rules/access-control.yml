@@ -1,0 +1,25 @@
+id: oas.access-control
+title: Access control change review
+sources:
+  - owasp.asvs
+  - owasp.secure-coding
+  - mitre.cwe
+risk: high
+triggers:
+  paths:
+    - "src/**/auth/**"
+    - "src/**/admin/**"
+    - "src/**/permissions/**"
+    - "src/**/rbac/**"
+  keywords:
+    - role
+    - permission
+    - tenant
+    - admin
+    - authorize
+requiredEvidence:
+  - non-admin-access-denied
+  - cross-tenant-access-denied
+gate:
+  failOnMissingEvidence: true
+

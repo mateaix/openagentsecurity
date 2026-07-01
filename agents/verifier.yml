@@ -1,0 +1,10 @@
+id: oas.verifier
+description: Turns matched security risks into required verification evidence.
+inputs:
+  - matchedRules
+  - projectInvariants
+  - policy
+outputs:
+  - requiredEvidence
+  - missingEvidence
+

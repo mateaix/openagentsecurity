@@ -1,0 +1,16 @@
+version: 0.1.0
+invariants:
+  - id: admin-api-requires-admin-role
+    description: Admin APIs require an admin role.
+    paths:
+      - "src/**/admin/**"
+    requiredEvidence:
+      - non-admin-access-denied
+  - id: tenant-isolation
+    description: Users cannot access another tenant's data.
+    paths:
+      - "src/**/tenant/**"
+      - "src/**/permissions/**"
+    requiredEvidence:
+      - cross-tenant-access-denied
+

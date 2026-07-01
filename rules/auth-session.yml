@@ -1,0 +1,25 @@
+id: oas.auth-session
+title: Authentication and session change review
+sources:
+  - owasp.asvs
+  - owasp.secure-coding
+  - mitre.cwe
+risk: high
+triggers:
+  paths:
+    - "src/**/auth/**"
+    - "src/**/session/**"
+    - "src/**/oauth/**"
+  keywords:
+    - jwt
+    - cookie
+    - session
+    - token
+    - oauth
+    - login
+requiredEvidence:
+  - protected-endpoints-require-authentication
+  - session-cookie-flags-verified
+gate:
+  failOnMissingEvidence: true
+

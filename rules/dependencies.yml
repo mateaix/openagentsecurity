@@ -1,0 +1,26 @@
+id: oas.dependencies
+title: Dependency and supply chain change review
+sources:
+  - cisa.kev
+  - openssf.scorecard
+  - slsa
+risk: medium
+triggers:
+  paths:
+    - "package.json"
+    - "package-lock.json"
+    - "pnpm-lock.yaml"
+    - "yarn.lock"
+    - "requirements*.txt"
+    - "pyproject.toml"
+    - "go.mod"
+    - "Cargo.toml"
+  keywords:
+    - postinstall
+    - script
+    - dependency
+requiredEvidence:
+  - dependency-audit-reviewed
+gate:
+  failOnMissingEvidence: false
+

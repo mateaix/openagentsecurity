@@ -1,0 +1,10 @@
+id: oas.reviewer
+description: Finds security-sensitive changes in code diffs.
+inputs:
+  - diff
+  - rules
+outputs:
+  - matchedRules
+  - riskSummary
+  - reviewTargets
+

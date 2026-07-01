@@ -1,0 +1,11 @@
+id: oas.policy
+description: Decides whether a change should pass, warn, fail, or block.
+inputs:
+  - riskSummary
+  - requiredEvidence
+  - missingEvidence
+  - policy
+outputs:
+  - gateDecision
+  - mergeRecommendation
+
