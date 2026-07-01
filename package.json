@@ -1,0 +1,30 @@
+{
+  "name": "@openagentsecurity/oas",
+  "version": "0.1.0",
+  "description": "Security gates for AI-generated code changes.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "oas": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^14.0.2",
+    "minimatch": "^10.1.1",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

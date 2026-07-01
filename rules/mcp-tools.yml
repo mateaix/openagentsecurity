@@ -11,15 +11,13 @@ triggers:
     - "**/tools/**"
     - "**/agents/**"
   keywords:
-    - tool
-    - permission
-    - filesystem
-    - shell
-    - network
     - mcp
+    - tool_call
+    - tool_permission
+    - shell
+    - filesystem
 requiredEvidence:
   - tool-permissions-reviewed
   - dangerous-tool-access-justified
 gate:
   failOnMissingEvidence: true
-
